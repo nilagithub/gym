@@ -38,3 +38,17 @@ return $_config[0];
 restart apache - sudo systemctl restart httpd
 http://localhost/gym/
 credential- admin/admin
+
+in home page- memebrlist not working but other tabs working
+
+Issue: in memberList - it shows Loading instead of showing member list
+Solution:
+Edit /var/www/html/gym/asset/ng/app.js  as below
+
+Before:
+PATH = window.location.protocol + "//" + window.location.host + "/demo/gym/";
+
+After- WORKED
+PATH="http://localhost/gym/";
+if you mention like below it doesnt work, because mine is CENTOS os
+PATH = window.location.protocol + "//" + window.location.host + "/gym/";
